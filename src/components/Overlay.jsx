@@ -94,7 +94,7 @@ const Overlay = ({ accepted, onYes }) => {
                         {photos.map((num) => (
                             <div key={num} className="carousel-item">
                                 <img
-                                    src={`/photos/photo${num}.jpg`}
+                                    src={`photos/photo${num}.jpg`}
                                     alt={`Memory ${num}`}
                                     onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.innerText = `Add photo${num}.jpg`; }}
                                 />
@@ -104,7 +104,7 @@ const Overlay = ({ accepted, onYes }) => {
                         {photos.map((num) => (
                             <div key={`dup-${num}`} className="carousel-item">
                                 <img
-                                    src={`/photos/photo${num}.jpg`}
+                                    src={`photos/photo${num}.jpg`}
                                     alt={`Memory ${num}`}
                                     onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.innerText = `Add photo${num}.jpg`; }}
                                 />
