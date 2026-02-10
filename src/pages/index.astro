@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import App from '../components/App.jsx';
+---
+
+<Layout>
+	<main>
+		<App client:only="react" />
+	</main>
+</Layout>
+
+<style>
+	main {
+		width: 100vw;
+		height: 100vh;
+		background-color: #1a0b14;
+	}
+</style>

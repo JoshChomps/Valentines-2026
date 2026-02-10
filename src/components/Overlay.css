@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap');
+
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px;
+    box-sizing: border-box;
+    color: #fff0f5;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.title-container {
+    text-align: center;
+    margin-top: 10vh;
+    animation: fadeInDown 2s ease-out;
+}
+
+.main-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 6rem;
+    margin: 0;
+    text-shadow: 0 0 20px rgba(255, 77, 109, 0.8), 0 0 40px rgba(255, 77, 109, 0.4);
+    color: #ffccd5;
+}
+
+.subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    opacity: 0.8;
+}
+
+/* Replaced interactions flex container with a full-size layer */
+.interactions-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: auto;
+    /* Allow clicking buttons */
+    z-index: 5;
+}
+
+.btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 15px 40px;
+    border-radius: 50px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    /* Key transition for top/left/transform changes */
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    backdrop-filter: blur(5px);
+    white-space: nowrap;
+}
+
+.yes-btn {
+    background: rgba(255, 77, 109, 0.2);
+    border-color: #ff4d6d;
+}
+
+.yes-btn:hover {
+    background: rgba(255, 77, 109, 0.6);
+    box-shadow: 0 0 20px rgba(255, 77, 109, 0.5);
+}
+
+.no-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.success-mode .main-title {
+    animation: pulse 2s infinite;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+        text-shadow: 0 0 40px rgba(255, 77, 109, 1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 4rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+}
+
+/* --- New Styles for Enhancements --- */
+
+/* Hidden Messages */
+.hidden-msg {
+    position: absolute;
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.6);
+    opacity: 0;
+    /* Hidden by default */
+    transition: opacity 0.5s ease;
+    cursor: default;
+    pointer-events: auto;
+    /* Enable hover */
+    padding: 20px;
+}
+
+.hidden-msg:hover {
+    opacity: 1;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.top-left {
+    top: 20px;
+    left: 20px;
+}
+
+.top-right {
+    top: 20px;
+    right: 20px;
+}
+
+/* Carousel */
+.carousel-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    /* HEIGHT INCREASED */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto;
+    z-index: 20;
+}
+
+.carousel-track {
+    display: flex;
+    overflow-x: auto;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    padding: 0 40px;
+    gap: 20px;
+    /* Hide scrollbar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+/* Hide scrollbar for Chrome/Safari/Opera */
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-item {
+    height: 180px;
+    width: auto;
+    /* Allow natural width */
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    overflow: visible;
+    /* Changed from hidden to allow scale */
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-item:hover {
+    transform: scale(1.3);
+    z-index: 50;
+    border-color: #ff4d6d;
+    box-shadow: 0 10px 30px rgba(255, 77, 109, 0.5);
+    margin: 0 30px;
+    /* Push siblings away */
+}
+
+.carousel-item img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    border-radius: 6px;
+    /* Inner radius */
+}
